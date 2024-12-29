@@ -1,0 +1,18 @@
+# Mac OS 시스템 파일
+.DS_Store
+
+# 환경 변수 및 민감한 정보
+.env
+*.env
+
+# 빌드된 파일 (빌드 과정이 있다면)
+dist/
+build/
+
+# 로컬 설정 파일 (VSCode 같은 IDE 설정 파일)
+.vscode/
+.idea/
+*.log
+
+# 크롬 확장 프로그램 압축 파일
+*.zip

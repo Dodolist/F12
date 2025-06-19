@@ -27,7 +27,7 @@ export const makeApiCalls = async (API_ENDPOINTS, COMMON_HEADERS) => {
   };
 
   const fetchGrades = async (userInfo) => {
-    const body = `_AUTH_MENU_KEY=SugdOtcmInq_2&_AUTH_PGM_ID=SugdOtcmInq&__PRVC_PSBLTY_YN=N&_AUTH_TASK_AUTHRT_ID=CCMN_SVC&default.locale=CCMN101.KOR&%40d1%23strAcyr=2024&%40d1%23strSemstrCd=CCMN031.20&%40d1%23strStdntNo=${userInfo.userId}&%40d1%23strFreeDiv=2&%40d1%23strStdntNm=${userInfo.encodedUserName}&%40d1%23strUnivCd=${userInfo.univCd}&%40d1%23strProfFlag=&%40d1%23strSbjcNo=&%40d1%23strDvclNo=&%40d%23=%40d1%23&%40d1%23=dmReqKey&%40d1%23tp=dm`;
+    const body = `_AUTH_MENU_KEY=SugdOtcmInq_2&_AUTH_PGM_ID=SugdOtcmInq&__PRVC_PSBLTY_YN=N&_AUTH_TASK_AUTHRT_ID=CCMN_SVC&default.locale=CCMN101.KOR&%40d1%23strAcyr=2025&%40d1%23strSemstrCd=CCMN031.10&%40d1%23strStdntNo=${userInfo.userId}&%40d1%23strFreeDiv=2&%40d1%23strStdntNm=${userInfo.encodedUserName}&%40d1%23strUnivCd=${userInfo.univCd}&%40d1%23strProfFlag=&%40d1%23strSbjcNo=&%40d1%23strDvclNo=&%40d%23=%40d1%23&%40d1%23=dmReqKey&%40d1%23tp=dm`;
     const API_ENDPOINT = API_ENDPOINTS.GRADES;
 
     const response = await fetchWithErrorHandling(API_ENDPOINT, body);
@@ -36,7 +36,7 @@ export const makeApiCalls = async (API_ENDPOINTS, COMMON_HEADERS) => {
   };
 
   const fetchSubjects = async (userInfo) => {
-    const body = `_AUTH_MENU_KEY=SugdOtcmInq_2&_AUTH_PGM_ID=SugdOtcmInq&__PRVC_PSBLTY_YN=N&_AUTH_TASK_AUTHRT_ID=CCMN_SVC&default.locale=CCMN101.KOR&%40d1%23strAcyr=2024&%40d1%23strSemstrCd=CCMN031.20&%40d1%23strStdntNo=${userInfo.userId}&%40d1%23strFreeDiv=2&%40d1%23strStdntNm=${userInfo.encodedUserName}&%40d1%23strUnivCd=${userInfo.univCd}&%40d1%23strProfFlag=&%40d1%23strSbjcNo=&%40d1%23strDvclNo=&%40d%23=%40d1%23&%40d1%23=dmReqKey&%40d1%23tp=dm`;
+    const body = `_AUTH_MENU_KEY=SugdOtcmInq_2&_AUTH_PGM_ID=SugdOtcmInq&__PRVC_PSBLTY_YN=N&_AUTH_TASK_AUTHRT_ID=CCMN_SVC&default.locale=CCMN101.KOR&%40d1%23strAcyr=2025&%40d1%23strSemstrCd=CCMN031.10&%40d1%23strStdntNo=${userInfo.userId}&%40d1%23strFreeDiv=2&%40d1%23strStdntNm=${userInfo.encodedUserName}&%40d1%23strUnivCd=${userInfo.univCd}&%40d1%23strProfFlag=&%40d1%23strSbjcNo=&%40d1%23strDvclNo=&%40d%23=%40d1%23&%40d1%23=dmReqKey&%40d1%23tp=dm`;
     const API_ENDPOINT = API_ENDPOINTS.SUBJECTS;
 
     const response = await fetchWithErrorHandling(API_ENDPOINT, body);

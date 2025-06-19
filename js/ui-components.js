@@ -1,3 +1,9 @@
+const formatNumber = (num) => {
+  return num.toString().split(".")[1]?.length >= 2
+    ? num.toFixed(2)
+    : num.toFixed(1);
+};
+
 export const UIComponents = {
   createGradeSection(grades) {
     const wrapper = document.createElement("div");
@@ -7,15 +13,17 @@ export const UIComponents = {
       <div class="section">
         <div class="item">
           <span class="label">평균 평점:</span>
-          <span class="value">${grades.AVG_MRKS.toFixed(1)}</span>
+          <span class="value">
+            ${formatNumber(grades.AVG_MRKS)}
+          </span>
         </div>
         <div class="item">
           <span class="label">전체 학점:</span>
-          <span class="value">${grades.TOT_PNT.toFixed(1)}</span>
+          <span class="value">${formatNumber(grades.TOT_PNT)}</span>
         </div>
         <div class="item">
           <span class="label">합계 평점:</span>
-          <span class="value">${grades.TOT_MRKS.toFixed(1)}</span>
+          <span class="value">${formatNumber(grades.TOT_MRKS)}</span>
         </div>
         <p class="description">평균 평점 = 합계 평점 / 전체 학점</p>
       </div>

@@ -1,7 +1,37 @@
+import { DUMMY_SUBJECTS } from './constants.js';
+
 const formatNumber = (num) => {
   return num.toString().split(".")[1]?.length >= 2
     ? num.toFixed(2)
     : num.toFixed(1);
+};
+
+const getDummySubjectList = (length) => {
+  const dummySubjectList = [];
+
+  while (dummySubjectList.length < length) {
+    const randomIndex = Math.floor(Math.random() * DUMMY_SUBJECTS.length);
+    const randomSubject = DUMMY_SUBJECTS[randomIndex];
+    if (!dummySubjectList.includes(randomSubject)) {
+      dummySubjectList.push(randomSubject);
+    }
+  }
+  return dummySubjectList;
+};
+
+// 과목명 라벨들을 업데이트하는 함수
+const updateSubjectLabels = (subjects, showRealNames) => {
+  const labelElements = document.querySelectorAll('.show-1 .item .label');
+  const dummySubjectList = getDummySubjectList(subjects.length);
+  
+  labelElements.forEach((labelElement, index) => {
+    if (subjects[index]) {
+      const displayName = showRealNames 
+        ? subjects[index].SBJC_NM 
+        : dummySubjectList[index];
+      labelElement.textContent = displayName;
+    }
+  });
 };
 
 export const UIComponents = {
@@ -29,6 +59,27 @@ export const UIComponents = {
       </div>
     `;
     return wrapper;
+  },
+
+  createSubjectToggle(subjects) {
+    const toggleWrapper = document.createElement("div");
+    toggleWrapper.classList.add("toggle-wrapper");
+    toggleWrapper.innerHTML = `
+      <div class="toggle-container">
+        <span class="toggle-label">실제 과목명 표시</span>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    `;
+
+    const checkbox = toggleWrapper.querySelector('input[type="checkbox"]');
+    checkbox.addEventListener('change', (e) => {
+      updateSubjectLabels(subjects, e.target.checked);
+    });
+
+    return toggleWrapper;
   },
 
   createSubjectsSection(subjects) {

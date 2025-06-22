@@ -65,11 +65,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       // 성적 정보 및 수강 과목 정보 출력
       const grades = gradesData.dsOtcmSumList[0];
       const subjectsData = JSON.parse(results[0].result.subjectsData);
-
       body.appendChild(UIComponents.createGradeSection(grades));
       body.appendChild(
         UIComponents.createSubjectsSection(subjectsData.dsMainList)
       );
+      body.appendChild(UIComponents.createSubjectToggle(subjectsData.dsMainList));
       body.appendChild(
         UIComponents.createPromotionSection(() => {
           chrome.tabs.create({ url: LINK_NAMES.UOSLINK_DOWNLOAD });

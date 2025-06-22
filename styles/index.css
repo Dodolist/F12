@@ -77,7 +77,7 @@ body {
 }
 
 .text-button {
-  animation: show 1s 0.5s forwards;
+  animation: show 1s 0.7s forwards;
   opacity: 0;
 
   transition: filter 0.3s;
@@ -167,4 +167,74 @@ body {
 .show-1 {
   animation: show 1s 0.3s forwards;
   opacity: 0;
+}
+
+/* 토글 스위치 스타일 */
+.toggle-wrapper {
+  animation: show 1s 0.5s forwards;
+  opacity: 0;
+
+  margin-bottom: 8px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.toggle-label {
+  color: #3c414c;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #408cff;
+}
+
+input:focus + .toggle-slider {
+  box-shadow: 0 0 1px #408cff;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
 }
